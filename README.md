@@ -30,7 +30,7 @@
 |prefecture_id   |integer    |null: false                   |
 |ship_day_id     |integer    |null: false                   |
 |price           |string     |null: false                   |
-|user_id         |references |null: false, foreign_key: true|
+|user            |references |null: false, foreign_key: true|
 
 ### Association
 
@@ -39,10 +39,10 @@
 
 ## purchases テーブル
 
-|Column |Type      |Options                       |
-|-------|----------|------------------------------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|Column|Type      |Options                       |
+|------|----------|------------------------------|
+|user  |references|null: false, foreign_key: true|
+|item  |references|null: false, foreign_key: true|
 
 ### Association
 
@@ -60,7 +60,7 @@
 |house_number |string    |null: false                   |
 |building_name|string    |                              |
 |phone_number |string    |null: false                   |
-|purchase_id  |references|null: false, foreign_key: true|
+|purchase     |references|null: false, foreign_key: true|
 
 ### Association
 
