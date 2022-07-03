@@ -8,7 +8,6 @@ class PurchaseCustomer
     validates :house_number
     validates :user_id
     validates :item_id
-    validates :purchase_id
   end
   validates :prefecture_id, numericality:{ other_than: 0, message: "can't be blank" }
   validates :phone_number, presence: true
