@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase_customer = PurchaseCustomer.new(@purchase_customer_params)
+    @purchase_customer = PurchaseCustomer.new(purchase_customer_params)
     if @purchase_customer.valid?
       @purchase_customer.save
       redirect_to root_path
