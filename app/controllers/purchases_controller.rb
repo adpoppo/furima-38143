@@ -5,4 +5,8 @@ class PurchasesController < ApplicationController
     @purchase_customer = PurchaseCustomer.new
   end
 
+  def create
+    
+  end
+
 end
