@@ -33,7 +33,7 @@ RSpec.describe PurchaseCustomer, type: :model do
       it 'postal_codeが半角ハイフン含む正しい形式でなければ登録できない' do
         @purchase_customer.postal_code = '1234567'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Postal code is invalid.Enter it as follows (e.g. 123-4567)")
+        expect(@purchase_customer.errors.full_messages).to include('Postal code is invalid.Enter it as follows (e.g. 123-4567)')
       end
       it 'prefecture_idが0では登録出来ない' do
         @purchase_customer.prefecture_id = 0
@@ -63,7 +63,7 @@ RSpec.describe PurchaseCustomer, type: :model do
       it 'phone_numberが半角数値でなければ登録できない' do
         @purchase_customer.phone_number = '００００００００００'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid. Input only number.")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid. Input only number.')
       end
       it 'userが紐づいていないと登録できない' do
         @purchase_customer.user_id = nil
