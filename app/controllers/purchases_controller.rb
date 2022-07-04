@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_item, only: [:index, :create]
+  before_action :move_to_index, only: :index
 
   def index
     @purchase_customer = PurchaseCustomer.new
@@ -33,6 +34,10 @@ class PurchasesController < ApplicationController
       card: purchase_customer_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in? && current_user.id != @item.user_id
   end
 
 end
