@@ -10,7 +10,7 @@ RSpec.describe PurchaseCustomer, type: :model do
 
   describe '購入情報登録' do
     context '購入情報が登録できる場合' do
-      it 'postal_code、prefecture_id、city、house_number、phone_numberが存在すれば登録できる' do
+      it 'token、postal_code、prefecture_id、city、house_number、phone_numberが存在すれば登録できる' do
         expect(@purchase_customer).to be_valid
       end
       it 'building_nameが空でも登録できる' do
@@ -20,6 +20,11 @@ RSpec.describe PurchaseCustomer, type: :model do
     end
 
     context '購入情報が登録できない場合' do
+      it 'tokenが空では登録できない' do
+        @purchase_customer.token = nil
+        @purchase_customer.valid?
+        expect(@purchase_customer.errors.full_messages).to include("Token can't be blank")
+      end
       it 'postal_codeが空では登録できない' do
         @purchase_customer.postal_code = ''
         @purchase_customer.valid?
